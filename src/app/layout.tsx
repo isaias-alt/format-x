@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={`${inter.className} antialiased`}
         cz-shortcut-listen="true"
@@ -29,14 +29,13 @@ export default function RootLayout({
         {children}
         <Toaster
           position="bottom-right"
-          theme="system"
+          theme="dark"
           richColors
-          closeButton
           toastOptions={{
             style: {
-              background: "hsl(var(--background))",
-              border: "1px solid hsl(var(--border))",
-              color: "hsl(var(--foreground))",
+              background: "bg-green-700",
+              border: "border-green-500/20",
+              color: "bg-green-700",
             },
           }}
         />

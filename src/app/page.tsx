@@ -1,15 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import {
   Copy,
   ArrowLeftRight,
   Trash2,
-  Star,
-  Github,
   AlertCircle,
   CheckCircle,
+  ArrowRight,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -542,8 +540,8 @@ export default function HomePage() {
                 </>
               ) : isValid ? (
                 <>
-                  <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
-                  <span className="text-green-700 dark:text-green-300">
+                  <CheckCircle className="w-4 h-4 text-green-400" />
+                  <span className="text-green-300">
                     {isProcessing ? "Procesando..." : "Conversión exitosa"}
                   </span>
                 </>
@@ -553,8 +551,9 @@ export default function HomePage() {
                 </span>
               )}
             </div>
-            <span className="text-muted-foreground">
-              {inputFormat.toUpperCase()} → {outputFormat.toUpperCase()}
+            <span className="flex items-center gap-2 text-muted-foreground">
+              {inputFormat.toUpperCase()} {<ArrowRight className="h-4 w-4" />}
+              {outputFormat.toUpperCase()}
             </span>
           </div>
         </div>
