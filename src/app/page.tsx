@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   Copy,
   ArrowLeftRight,
@@ -21,18 +22,19 @@ import {
 import { toast } from "sonner";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import CodeEditor from "@/components/monaco-loader";
 
 export default function HomePage() {
   const [inputValue, setInputValue] = useState(`{
-  "name": "Juan Pérez",
+  "name": "Sara Armoa",
   "age": 30,
-  "email": "juan@example.com",
+  "email": "grotela@example.com",
   "address": {
     "street": "Calle Principal 123",
-    "city": "Madrid",
-    "country": "España"
+    "city": "Santa Rosa de Lima",
+    "country": "Paraguay"
   },
-  "hobbies": ["programación", "música", "viajes"]
+  "hobbies": ["programming", "music", "travel"]
 }`);
   const [outputValue, setOutputValue] = useState("");
   const [inputFormat, setInputFormat] = useState("json");
@@ -80,7 +82,7 @@ export default function HomePage() {
       return minify ? JSON.stringify(parsed) : JSON.stringify(parsed, null, 2);
     } catch (error) {
       throw new Error(
-        `JSON inválido: ${
+        `Invalid JSON: ${
           typeof error === "object" && error !== null && "message" in error
             ? (error as { message: string }).message
             : String(error)
@@ -128,7 +130,7 @@ export default function HomePage() {
       return `<?xml version="1.0" encoding="UTF-8"?>\n${convertToXML(obj)}`;
     } catch (error) {
       throw new Error(
-        `Error convirtiendo JSON a XML: ${
+        `Error converting JSON to XML: ${
           typeof error === "object" && error !== null && "message" in error
             ? (error as { message: string }).message
             : String(error)
@@ -163,7 +165,7 @@ export default function HomePage() {
       return JSON.stringify(parsed, null, 2);
     } catch (error) {
       throw new Error(
-        `Error convirtiendo XML a JSON: ${
+        `Error converting XML to JSON: ${
           typeof error === "object" && error !== null && "message" in error
             ? (error as { message: string }).message
             : String(error)
@@ -210,7 +212,7 @@ export default function HomePage() {
       return convertToYAML(obj);
     } catch (error) {
       throw new Error(
-        `Error convirtiendo JSON a YAML: ${
+        `Error converting JSON to YAML: ${
           typeof error === "object" && error !== null && "message" in error
             ? (error as { message: string }).message
             : String(error)
@@ -225,7 +227,7 @@ export default function HomePage() {
       const data = JSON.parse(jsonText);
 
       if (!Array.isArray(data)) {
-        throw new Error("JSON debe ser un array para convertir a CSV");
+        throw new Error("JSON must be an array to convert to CSV");
       }
 
       if (data.length === 0) {
@@ -338,24 +340,24 @@ export default function HomePage() {
 
   const handleCopy = async (text: string, type: string) => {
     if (!text) {
-      toast.error("No hay contenido para copiar");
+      toast.error("No content to copy");
       return;
     }
 
     try {
       await navigator.clipboard.writeText(text);
-      toast.success(`${type} copiado al portapapeles`, {
+      toast.success(`${type} copied to clipboard`, {
         duration: 2000,
       });
     } catch (err) {
-      console.error("Error al copiar:", err);
-      toast.error("Error al copiar al portapapeles");
+      console.error("Error copying:", err);
+      toast.error("Error copying to clipboard");
     }
   };
 
   const handleSwap = () => {
     if (!inputValue && !outputValue) {
-      toast.error("No hay contenido para intercambiar");
+      toast.error("No content to swap");
       return;
     }
 
@@ -367,12 +369,12 @@ export default function HomePage() {
     setInputFormat(outputFormat);
     setOutputFormat(tempFormat);
 
-    toast.success("Paneles intercambiados");
+    toast.success("Panels swapped");
   };
 
   const handleClear = () => {
     if (!inputValue && !outputValue) {
-      toast.error("No hay contenido para limpiar");
+      toast.error("No content to clear");
       return;
     }
 
@@ -381,7 +383,7 @@ export default function HomePage() {
     setError(null);
     setIsValid(false);
 
-    toast.success("Contenido limpiado");
+    toast.success("Content cleared");
   };
 
   return (
@@ -396,7 +398,7 @@ export default function HomePage() {
             {/* Input Format Selector */}
             <Select value={inputFormat} onValueChange={setInputFormat}>
               <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Formato de entrada" />
+                <SelectValue placeholder="Input format" />
               </SelectTrigger>
               <SelectContent>
                 {formats.map((format) => (
@@ -413,7 +415,7 @@ export default function HomePage() {
               size="icon"
               onClick={handleSwap}
               disabled={!inputValue && !outputValue}
-              title="Intercambiar paneles"
+              title="Swap panels"
             >
               <ArrowLeftRight className="w-4 h-4" />
             </Button>
@@ -421,7 +423,7 @@ export default function HomePage() {
             {/* Output Format Selector */}
             <Select value={outputFormat} onValueChange={setOutputFormat}>
               <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Formato de salida" />
+                <SelectValue placeholder="Output format" />
               </SelectTrigger>
               <SelectContent>
                 {formats.map((format) => (
@@ -452,31 +454,28 @@ export default function HomePage() {
               <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                 Input ({inputFormat.toUpperCase()})
               </h2>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => handleCopy(inputValue, "Input")}
-                disabled={!inputValue}
-                title="Copiar input"
-              >
-                <Copy className="w-3.5 h-3.5" />
-              </Button>
-            </div>
-
-            <div className="relative">
-              <textarea
-                value={inputValue}
-                onChange={(e) => handleInputChange(e.target.value)}
-                placeholder={`Pega aquí tu ${inputFormat.toUpperCase()}...`}
-                className="w-full h-96 bg-card border border-border rounded-lg p-4 text-sm font-mono resize-none focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors"
-                spellCheck={false}
-              />
-
-              {/* Character Count */}
-              <div className="absolute bottom-2 right-2 text-xs text-muted-foreground bg-card/80 backdrop-blur-sm px-2 py-1 rounded">
-                {inputValue.length} chars
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-muted-foreground">
+                  {inputValue.length} chars
+                </span>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => handleCopy(inputValue, "Input")}
+                  disabled={!inputValue}
+                  title="Copy input"
+                >
+                  <Copy className="w-3.5 h-3.5" />
+                </Button>
               </div>
             </div>
+
+            <CodeEditor
+              value={inputValue}
+              onChange={handleInputChange}
+              language={inputFormat}
+              placeholder={`Paste your ${inputFormat.toUpperCase()} here...`}
+            />
           </div>
 
           {/* Output Panel */}
@@ -485,39 +484,33 @@ export default function HomePage() {
               <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                 Output ({outputFormat.toUpperCase()})
               </h2>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => handleCopy(outputValue, "Output")}
-                disabled={!outputValue}
-                title="Copiar output"
-              >
-                <Copy className="w-3.5 h-3.5" />
-              </Button>
-            </div>
-
-            <div className="relative">
-              <textarea
-                value={outputValue}
-                readOnly
-                placeholder={
-                  error
-                    ? `Error en la conversión - revisa el formato de entrada`
-                    : `El resultado en ${outputFormat.toUpperCase()} aparecerá aquí automáticamente...`
-                }
-                className={`w-full h-96 border rounded-lg p-4 text-sm font-mono resize-none focus:outline-none transition-colors ${
-                  error
-                    ? "bg-destructive/5 border-destructive text-destructive"
-                    : "bg-card border-border"
-                }`}
-                spellCheck={false}
-              />
-
-              {/* Character Count */}
-              <div className="absolute bottom-2 right-2 text-xs text-muted-foreground bg-card/80 backdrop-blur-sm px-2 py-1 rounded">
-                {outputValue.length} chars
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-muted-foreground">
+                  {outputValue.length} chars
+                </span>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => handleCopy(outputValue, "Output")}
+                  disabled={!outputValue}
+                  title="Copy output"
+                >
+                  <Copy className="w-3.5 h-3.5" />
+                </Button>
               </div>
             </div>
+
+            <CodeEditor
+              value={outputValue}
+              onChange={() => {}}
+              language={outputFormat}
+              readOnly
+              placeholder={
+                error
+                  ? `Conversion error - check input format`
+                  : `The result in ${outputFormat.toUpperCase()} will appear here automatically...`
+              }
+            />
           </div>
         </div>
 
@@ -540,19 +533,24 @@ export default function HomePage() {
                 </>
               ) : isValid ? (
                 <>
-                  <CheckCircle className="w-4 h-4 text-green-400" />
+                  <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
                   <span className="text-green-300">
-                    {isProcessing ? "Procesando..." : "Conversión exitosa"}
+                    {isProcessing ? "Processing..." : "Successful conversion"}
                   </span>
                 </>
               ) : (
                 <span className="text-muted-foreground">
-                  {isProcessing ? "Procesando..." : "Listo para convertir"}
+                  {isProcessing ? "Processing..." : "Ready to convert"}
                 </span>
               )}
             </div>
-            <span className="flex items-center gap-2 text-muted-foreground">
-              {inputFormat.toUpperCase()} {<ArrowRight className="h-4 w-4" />}
+            <span
+              className={`flex items-center gap-2 ${
+                error ? "text-destructive" : "text-green-300"
+              }`}
+            >
+              {inputFormat.toUpperCase()}
+              <ArrowRight className="w-4 h-4" />
               {outputFormat.toUpperCase()}
             </span>
           </div>
