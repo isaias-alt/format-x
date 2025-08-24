@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const inter = Inter({
@@ -26,6 +27,19 @@ export default function RootLayout({
         cz-shortcut-listen="true"
       >
         {children}
+        <Toaster
+          position="bottom-right"
+          theme="system"
+          richColors
+          closeButton
+          toastOptions={{
+            style: {
+              background: "hsl(var(--background))",
+              border: "1px solid hsl(var(--border))",
+              color: "hsl(var(--foreground))",
+            },
+          }}
+        />
       </body>
     </html>
   );
