@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  lucide-react:
+    specifier: 0.541.0
+    version: 0.541.0(react@19.1.0)
   next:
     specifier: 15.5.0
     version: 15.5.0(react-dom@19.1.0)(react@19.1.0)
@@ -17,31 +20,31 @@ dependencies:
 
 devDependencies:
   '@eslint/eslintrc':
-    specifier: ^3
+    specifier: '3'
     version: 3.3.1
   '@tailwindcss/postcss':
-    specifier: ^4
+    specifier: '4'
     version: 4.1.12
   '@types/node':
-    specifier: ^20
+    specifier: '20'
     version: 20.19.11
   '@types/react':
-    specifier: ^19
+    specifier: '19'
     version: 19.1.11
   '@types/react-dom':
-    specifier: ^19
+    specifier: '19'
     version: 19.1.7(@types/react@19.1.11)
   eslint:
-    specifier: ^9
+    specifier: '9'
     version: 9.34.0
   eslint-config-next:
     specifier: 15.5.0
     version: 15.5.0(eslint@9.34.0)(typescript@5.9.2)
   tailwindcss:
-    specifier: ^4
+    specifier: '4'
     version: 4.1.12
   typescript:
-    specifier: ^5
+    specifier: '5'
     version: 5.9.2
 
 packages:
@@ -1287,6 +1290,7 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    requiresBuild: true
 
   /color-string@1.9.1:
     resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
@@ -2527,6 +2531,14 @@ packages:
     dependencies:
       js-tokens: 4.0.0
     dev: true
+
+  /lucide-react@0.541.0(react@19.1.0):
+    resolution: {integrity: sha512-s0Vircsu5WaGv2KoJZ5+SoxiAJ3UXV5KqEM3eIFDHaHkcLIFdIWgXtZ412+Gh02UsdS7Was+jvEpBvPCWQISlg==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    dependencies:
+      react: 19.1.0
+    dev: false
 
   /magic-string@0.30.18:
     resolution: {integrity: sha512-yi8swmWbO17qHhwIBNeeZxTceJMeBvWJaId6dyvTSOwTipqeHhMhOrz6513r1sOKnpvQ7zkhlG8tPrpilwTxHQ==}
