@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Lucas Casco",
-  "description": "A JSON formatter and converter",
+  "description": "A powerful tool for converting between different data formats: JSON, XML, YAML, CSV, and Plain Text.",
   "keywords": [
     "JSON",
     "YAML",

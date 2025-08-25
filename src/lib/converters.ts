@@ -1,9 +1,6 @@
 import { FormatType } from "./constants";
 import { formatJSON, parseTextAsJSON } from "./formatters";
 
-/**
- * Convert JSON to XML format
- */
 export const jsonToXML = (jsonText: string): string => {
   try {
     const obj = JSON.parse(jsonText);
@@ -51,19 +48,13 @@ export const jsonToXML = (jsonText: string): string => {
   }
 };
 
-/**
- * Convert XML to JSON format (basic implementation)
- */
 export const xmlToJSON = (xmlText: string): string => {
   try {
-    // Remove XML declaration
     const cleanXml = xmlText.replace(/<\?xml.*?\?>/g, "").trim();
 
-    // Simple XML parser (for basic cases)
     const parseXMLToObj = (xmlStr: string): any => {
       const result: any = {};
 
-      // Find tags
       const tagRegex = /<(\w+)(?:[^>]*)>([^<]*)<\/\1>/g;
       let match;
 
@@ -88,9 +79,6 @@ export const xmlToJSON = (xmlText: string): string => {
   }
 };
 
-/**
- * Convert JSON to YAML format
- */
 export const jsonToYAML = (jsonText: string): string => {
   try {
     const obj = JSON.parse(jsonText);
@@ -137,9 +125,6 @@ export const jsonToYAML = (jsonText: string): string => {
   }
 };
 
-/**
- * Convert JSON to CSV format
- */
 export const jsonToCSV = (jsonText: string): string => {
   try {
     const data = JSON.parse(jsonText);
@@ -178,9 +163,6 @@ export const jsonToCSV = (jsonText: string): string => {
   }
 };
 
-/**
- * Main conversion function that handles all format conversions
- */
 export const convertFormat = (
   text: string,
   fromFormat: FormatType,
@@ -189,7 +171,6 @@ export const convertFormat = (
   if (!text.trim()) return "";
 
   try {
-    // If formats are the same, just format the text
     if (fromFormat === toFormat) {
       if (fromFormat === "json") {
         return formatJSON(text);
@@ -197,7 +178,6 @@ export const convertFormat = (
       return text;
     }
 
-    // Handle conversions based on format combination
     switch (`${fromFormat}_to_${toFormat}`) {
       case "json_to_xml":
         return jsonToXML(text);
@@ -212,7 +192,6 @@ export const convertFormat = (
       case "plaintext_to_json":
         return parseTextAsJSON(text);
       default:
-        // For unsupported conversions, return the original text
         return text;
     }
   } catch (error) {

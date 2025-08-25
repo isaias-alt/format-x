@@ -1,0 +1,26 @@
+{
+  "name": "Format-X - JSON Formatter and Data Converter",
+  "short_name": "Format-X",
+  "description": "A powerful tool for converting between different data formats: JSON, XML, YAML, CSV, and Plain Text.",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "utilities", "developer"]
+}

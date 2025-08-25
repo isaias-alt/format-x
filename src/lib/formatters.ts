@@ -1,6 +1,3 @@
-/**
- * Format JSON with proper indentation
- */
 export const formatJSON = (text: string, minify = false): string => {
   try {
     const parsed = JSON.parse(text);
@@ -16,15 +13,10 @@ export const formatJSON = (text: string, minify = false): string => {
   }
 };
 
-/**
- * Try to parse plain text as JSON
- */
 export const parseTextAsJSON = (text: string): string => {
   try {
-    // If it's already valid JSON, format it
     return formatJSON(text);
   } catch {
-    // If not valid JSON, try to create a JSON structure from plain text
     const lines = text.split("\n").filter((line) => line.trim());
 
     if (lines.length === 0) {
@@ -35,7 +27,6 @@ export const parseTextAsJSON = (text: string): string => {
       return JSON.stringify({ content: text.trim() }, null, 2);
     }
 
-    // Try to detect key-value pairs
     const keyValuePairs: Record<string, any> = {};
     let hasKeyValuePairs = false;
 
@@ -52,7 +43,6 @@ export const parseTextAsJSON = (text: string): string => {
       return JSON.stringify(keyValuePairs, null, 2);
     }
 
-    // Otherwise, create an array of lines
     return JSON.stringify({ lines }, null, 2);
   }
 };
