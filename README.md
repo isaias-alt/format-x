@@ -209,7 +209,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Website: [lucasco.dev](https://lucasco.dev)
 - GitHub: [@isaias-alt](https://github.com/isaias-alt)
-- X: [@lucascodev](https://x.com/lucascodev)
+- 🐦 or X (whatever the freak you wanna call it): [@lucascodev](https://x.com/lucascodev)
 
 ---
 
