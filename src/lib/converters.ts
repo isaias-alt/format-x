@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FormatType } from "./constants";
 import { formatJSON, parseTextAsJSON } from "./formatters";
 

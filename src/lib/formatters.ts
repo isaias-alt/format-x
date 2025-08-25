@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const formatJSON = (text: string, minify = false): string => {
   try {
     const parsed = JSON.parse(text);
