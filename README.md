@@ -35,4 +35,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-[![Contribuidores](https://contrib.rocks/image?repo=midudev/la-velada-web-oficial&max=500&columns=20)](https://github.com/midudev/la-velada-web-oficial/graphs/contributors)
+[![Contribuidores](https://contrib.rocks/image?repo=isaias-alt/format-x&max=500&columns=20)](https://github.com/isaias-alt/format-x/graphs/contributors)
