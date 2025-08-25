@@ -300,7 +300,7 @@ Contributors will be recognized in:
 ## 🤔 Questions?
 
 - 💬 [Open a discussion](https://github.com/isaias-alt/format-x/discussions)
-- 🐦 Twitter: [@lucascodev](https://twitter.com/lucascodev)
+- 🐦 or X (whatever the freak you wanna call it): [@lucascodev](https://x.com/lucascodev)
 
 ## 📚 Resources
 
