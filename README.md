@@ -179,26 +179,16 @@ Please read our [Contributing Guide](CONTRIBUTING.md) to learn how you can help 
 ### Quick contribution steps:
 
 1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create your feature branch (`git switch -c feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
 ## ✨ Contributors
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people:
 
 [![Contribuidores](https://contrib.rocks/image?repo=isaias-alt/format-x&max=500&columns=20)](https://github.com/isaias-alt/format-x/graphs/contributors)
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 ## 📝 License
 
@@ -219,7 +209,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Website: [lucasco.dev](https://lucasco.dev)
 - GitHub: [@isaias-alt](https://github.com/isaias-alt)
-- Twitter: [@lucascodev](https://twitter.com/lucascodev)
+- X: [@lucascodev](https://x.com/lucascodev)
 
 ---
 
