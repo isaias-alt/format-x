@@ -11,7 +11,7 @@
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?logo=typescript)](https://www.typescriptlang.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
 
-[Live Demo](https://format-x.vercel.app) • [Report Bug](https://github.com/isaias-alt/format-x/issues) • [Request Feature](https://github.com/isaias-alt/format-x/issues)
+[Live Demo](https://format-your-x.vercel.app/) • [Report Bug](https://github.com/isaias-alt/format-x/issues) • [Request Feature](https://github.com/isaias-alt/format-x/issues)
 
 </div>
 

@@ -52,7 +52,7 @@ export const KEYWORDS = [
 export const OPEN_GRAPH = {
   type: "website",
   locale: "en_US",
-  url: "https://format-x.vercel.app",
+  url: "https://format-your-x.vercel.app/",
   title: "Format-X - JSON Formatter and Data Converter",
   description:
     "A powerful tool for converting between different data formats: JSON, XML, YAML, CSV, and Plain Text. Format, validate, and transform your data with ease.",

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   creator: "Lucas Casco",
   publisher: "Lucas Casco",
-  metadataBase: new URL("https://format-x.vercel.app"),
+  metadataBase: new URL("https://format-your-x.vercel.app/"),
   alternates: {
     canonical: "/",
   },
