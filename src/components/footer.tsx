@@ -9,7 +9,7 @@ const Footer = () => {
           <Link
             href="https://lucasco.dev"
             target="_blank"
-            className="text-blue-500 font-medium hover:underline"
+            className="text-blue-800 font-medium hover:underline"
           >
             lucasco.dev
           </Link>

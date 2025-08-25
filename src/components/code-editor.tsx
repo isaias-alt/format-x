@@ -3,11 +3,12 @@
 import { Editor } from "@monaco-editor/react";
 import { useEffect, useRef } from "react";
 import type { editor } from "monaco-editor";
+import { FormatType, MONACO_LANGUAGE_MAP } from "@/lib/constants";
 
 interface CodeEditorProps {
   value: string;
   onChange: (value: string) => void;
-  language: string;
+  language: FormatType;
   readOnly?: boolean;
   placeholder?: string;
 }
@@ -21,25 +22,7 @@ const CodeEditor = ({
 }: CodeEditorProps) => {
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
 
-  // Mapear formatos a lenguajes de Monaco
-  const getMonacoLanguage = (format: string) => {
-    switch (format.toLowerCase()) {
-      case "json":
-        return "json";
-      case "xml":
-        return "xml";
-      case "yaml":
-        return "yaml";
-      case "csv":
-        return "plaintext";
-      case "plaintext":
-        return "plaintext";
-      default:
-        return "plaintext";
-    }
-  };
-
-  const monacoLanguage = getMonacoLanguage(language);
+  const monacoLanguage = MONACO_LANGUAGE_MAP[language];
 
   const handleEditorDidMount = (editor: editor.IStandaloneCodeEditor) => {
     editorRef.current = editor;
